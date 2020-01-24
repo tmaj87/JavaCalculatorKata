@@ -1,24 +1,14 @@
 package pl.tmaj;
 
-public class Calculator {
+public class Calculator<T extends Operation> {
 
-    public static long add(long a, long b) {
-        return new Add().apply(a, b);
+    private final T operation;
+
+    public Calculator(T operation) {
+        this.operation = operation;
     }
 
-    public static long subtract(long a, long b) {
-        return new Subtract().apply(a, b);
-    }
-
-    public static long divide(long a, long b) {
-        return new Divide().apply(a, b);
-    }
-
-    public static long multiply(long a, long b) {
-        return new Multiply().apply(a, b);
-    }
-
-    public static long power(long a, long b) {
-        return new Power().apply(a, b);
+    public long calculate(long a, long b) {
+        return operation.apply(a, b);
     }
 }
