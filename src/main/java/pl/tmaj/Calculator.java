@@ -1,10 +1,10 @@
 package pl.tmaj;
 
-public class Calculator<T extends Operation> {
+public class Calculator {
 
-    private final T operation;
+    private final Operation operation;
 
-    public Calculator(T operation) {
+    public Calculator(Operation operation) {
         this.operation = operation;
     }
 

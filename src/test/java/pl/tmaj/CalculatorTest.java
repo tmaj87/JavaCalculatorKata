@@ -24,7 +24,7 @@ public class CalculatorTest {
     @Test
     @Parameters(method = "operations")
     public void shouldCalculateOperations(Operation operation, long a, long b, long result) {
-        Calculator<Operation> calculator = new Calculator<>(operation);
+        Calculator calculator = new Calculator(operation);
         assertThat(calculator.calculate(a, b), is(result));
     }
 }
