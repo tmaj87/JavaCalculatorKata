@@ -17,7 +17,7 @@ public class CalculatorTest {
                 $(new Subtract(), 10L, 4L, 6L),
                 $(new Divide(), 16L, 2L, 8L),
                 $(new Multiply(), 2L, 4L, 8L),
-                $(new Power(), 2L, 8L, 512L)
+                $(new Power(), 2L, 8L, 256L)
         );
     }
 
