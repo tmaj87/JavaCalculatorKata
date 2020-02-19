@@ -24,7 +24,7 @@ public class CalculatorTest {
 
     @Test
     @Parameters(method = "operations")
-    public void shouldCalculate(Calculations calculation, long a, long b, long result) {
-        assertThat(calculation.apply(a, b), is(result));
+    public void shouldCalculate(Calculations calculation, long a, long b, double result) {
+        assertThat(calculation.applyAsDouble(a, b), is(result));
     }
 }
