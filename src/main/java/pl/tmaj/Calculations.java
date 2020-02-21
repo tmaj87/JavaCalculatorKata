@@ -4,21 +4,18 @@ import java.util.function.DoubleBinaryOperator;
 
 public enum Calculations implements DoubleBinaryOperator {
 
-    ADD((x, y) -> x + y),
-    SUBTRACT((x, y) -> x - y),
-    MULTIPLY((x, y) -> x * y),
-    DIVIDE((x, y) -> x / y),
-    POWER((x, y) -> {
+    ADD(Double::sum),
+    SUBTRACT((a, b) -> a - b),
+    MULTIPLY((a, b) -> a * b),
+    DIVIDE((a, b) -> a / b),
+    POWER((a, b) -> {
         DoubleBinaryOperator op = new DoubleBinaryOperator() {
             @Override
-            public double applyAsDouble(double x, double y) {
-                if (y > 0) {
-                    return x * applyAsDouble(x, y - 1);
-                }
-                return 1;
+            public double applyAsDouble(double a, double b) {
+                return  b > 0 ? a * applyAsDouble(a, b - 1) : 1;
             }
         };
-        return op.applyAsDouble(x, y);
+        return op.applyAsDouble(a, b);
     });
 
     private final DoubleBinaryOperator operator;
@@ -28,7 +25,7 @@ public enum Calculations implements DoubleBinaryOperator {
     }
 
     @Override
-    public double applyAsDouble(double x, double y) {
-        return operator.applyAsDouble(x, y);
+    public double applyAsDouble(double a, double b) {
+        return operator.applyAsDouble(a, b);
     }
 }
